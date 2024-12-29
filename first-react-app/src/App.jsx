@@ -7,6 +7,10 @@ import City from "../components/City";
 import Address from "../components/Address";
 import Greeting from "../components/Greeting";
 import FullName from "../components/Fullname";
+import ComplexComment from "../components/ComplexComponent";
+import { Callout } from "../components/Callout";
+import { FancyBox } from "../components/Callout";
+import MoviesList from "../components/MoviesList";
 
 function App() {
   const [count, setCount] = useState(0);
@@ -49,6 +53,16 @@ function App() {
     );
   }
 
+  const comment = {
+    date: new Date(),
+    text: "I hope you enjoy learning React!",
+    author: {
+      // author is also an object
+      name: "Hello Kitty",
+      avatarUrl: "https://placekitten.com/g/64/64",
+    },
+  };
+
   return (
     <>
       <div>
@@ -60,7 +74,20 @@ function App() {
         </a>
         {spideyJSX}
         <Welcome />
-        <FullName />
+        // render the Callout component with FullName as children
+        <FancyBox>
+          <p>Hi There</p>
+          <p>stupid</p>
+        </FancyBox>
+        <MoviesList></MoviesList>
+        <Callout
+          title="Nested React Component"
+          message="Simple message with a fancy box applied via composition"
+        >
+          <FullName first="Elon" last="Musk" />
+        </Callout>
+        ;
+        <FullName first="aidan" middle="gustav" last="herstik" />
         <Greeting />
         <ExampleComponent />
         <PropsDisplayer />
@@ -71,13 +98,17 @@ function App() {
           name="Aidan"
           age={24}
         />
+        <ComplexComment
+          author={comment.author}
+          date={comment.date}
+          text={comment.text}
+        />
         <City name="Chicago" state="Illinois" country="USA" />
         <Address
           address="19 James scott close"
           state="ACT"
           country="Australia"
         />
-
         <City name="Newcastle">
           <div>
             Newcastle is a harbour city in the Australian state of New South
@@ -87,7 +118,6 @@ function App() {
             <strong>Population:</strong> 322,278 (2016)
           </div>
         </City>
-
         <p>{invalidJSX}</p>
       </div>
       <h1>Vite + React</h1>
