@@ -11,6 +11,10 @@ import ComplexComment from "../components/ComplexComponent";
 import { Callout } from "../components/Callout";
 import { FancyBox } from "../components/Callout";
 import MoviesList from "../components/MoviesList";
+import BigCats from "../components/BigCats";
+import MoodChanger from "../components/MoodChanger";
+import Emoji from "../components/Emoji";
+import LoginForm from "../components/LoginForm";
 
 function App() {
   const [count, setCount] = useState(0);
@@ -74,6 +78,10 @@ function App() {
         </a>
         {spideyJSX}
         <Welcome />
+        <LoginForm />
+        <Emoji />
+        <MoodChanger />
+        <BigCats />
         // render the Callout component with FullName as children
         <FancyBox>
           <p>Hi There</p>
